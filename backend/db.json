@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "f520",
+      "name": "TESTE",
+      "email": "TESTE@gmail.com",
+      "password": "Ola12@"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "b0d3e94f-bf8e-4ded-bee6-5775cc91df6c",
+      "status": "todo",
+      "title": "teste 12/20/2099",
+      "date": "2025-11-03",
+      "time": "",
+      "entireDay": true,
+      "description": "teste para validar id e alteração de titulo para aceitar diferentes formas de escrtia",
+      "priority": "low",
+      "userId": "f520"
+    },
+    {
+      "id": "1516c499-ee47-4a98-897e-fa483f16be50",
+      "status": "todo",
+      "title": "12/12/2999",
+      "date": "2025-11-03",
+      "time": "",
+      "entireDay": true,
+      "description": "teste",
+      "priority": "low",
+      "userId": "f520"
+    },
+    {
+      "id": "81e8a19e-6460-468f-ae86-9fe01ec2fa7c",
+      "status": "todo",
+      "title": ",",
+      "date": "2025-11-03",
+      "time": "",
+      "entireDay": true,
+      "description": "",
+      "priority": "low",
+      "userId": "f520"
+    }
+  ]
+}

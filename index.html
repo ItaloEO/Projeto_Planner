@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner Mensal</title>
+ <link rel="stylesheet" href="./styles/style.css">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <script>
+  const cookies = document.cookie.split(';').map(c => c.trim());
+  const userCookie = cookies.find(c => c.startsWith('loggedInUser='));
+  if (!userCookie) {
+    window.location.href = 'login.html';
+  }
+</script>
+
+  <main>
+    <aside class="menu__sidebar">
+        <div class="menu__header">
+          <button class="burger-menu">
+            <span class="burger__lines">Toggle Menu</span>
+          </button>
+          <span class="title-bar__company">
+          Plano de Estudos
+          </span>
+        </div>
+
+        <div class="menu_container">
+          <nav class="menu__nav">
+          <button id="create-task-button" type="button">
+            <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 5L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Criar Tarefa</span>
+          </button>
+
+          <ul class="sidebar__list">
+            <li class="menu__list-item">
+              <button class="menu__button" data-option="calendar">
+                <img src="./assets/icons/calendar-dark.png" alt="Icone de calendário" id="calendar-icon">
+                <span class="menu__title">Calendario</span>
+              </button>
+            </li>
+            <li class="menu__list-item">
+              <button class="menu__button" data-option="kanban">
+                <img src="./assets/icons/kanban-dark.png" alt="Icone de kanban" id="kanban-icon">
+                <span class="menu__title">Kanban</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        </div>
+    </aside>
+
+    <section class="view__container">
+      <div class="view__container__header">
+        <div class="date-controls">
+          <button class="selected-date">
+            Mês/ano
+          </button>
+          <div class="date-picker">
+            <div class="date-picker-year-container">
+              <button class="tdate-picker-prev-year"><</button>
+              <span id="date-picker-selected-year">2025</span>
+              <button class="date-picker-next-year">></button>
+            </div>  <!-- date-picker-year-container -->
+            <div class="date-picker-month-container">
+              <button class="date-picker-month-option" data-month="0">Jan</button>
+              <button class="date-picker-month-option" data-month="1">Fev</button>
+              <button class="date-picker-month-option" data-month="2">Mar</button>
+              <button class="date-picker-month-option" data-month="3">Abr</button>
+              <button class="date-picker-month-option" data-month="4">Maio</button>
+              <button class="date-picker-month-option" data-month="5">Jun</button>
+              <button class="date-picker-month-option" data-month="6">Jul</button>
+              <button class="date-picker-month-option" data-month="7">Ago</button>
+              <button class="date-picker-month-option" data-month="8">Set</button>
+              <button class="date-picker-month-option" data-month="9">Out</button>
+              <button class="date-picker-month-option" data-month="10">Nov</button>
+              <button class="date-picker-month-option" data-month="11">Dez</button>
+            </div> <!-- date-picker-month-container -->
+          </div> <!-- date-picker -->
+        </div> <!-- date-controls -->
+        
+        <!-- Botão de alternar tema -->
+        <div class="btn-theme-container">
+          <div class="btn-theme-circle"></div>
+          <div class="btn-theme-circle"></div>
+          <div class="btn-theme-circle"></div>
+          <div class="btn-theme-circle"></div>
+        </div> <!-- btn-theme-container -->
+      </div> <!-- view__container__header -->
+      
+      <!-- Renderiza o conteudo dinamicamente. -->
+      <section class="view-content"></section>
+    </section>
+
+</main>
+
+<script type="module" src="./scripts/main.js"></script>
+
+<script>
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser) {
+    const userDiv = document.createElement("div");
+    userDiv.textContent = `Olá, ${currentUser.name}!`;
+    userDiv.style.position = "absolute";
+    userDiv.style.top = "15px";
+    userDiv.style.right = "220px"; // afastado do seletor de cor
+    userDiv.style.fontWeight = "bold";
+    document.body.appendChild(userDiv);
+
+    const logoutBtn = document.createElement("button");
+    logoutBtn.textContent = "Sair";
+    logoutBtn.style.position = "absolute";
+    logoutBtn.style.top = "10px";
+    logoutBtn.style.right = "120px"; // alinhado um pouco antes
+    logoutBtn.style.padding = "6px 10px";
+    logoutBtn.style.cursor = "pointer";
+
+    logoutBtn.addEventListener("click", () => {
+      document.cookie = "loggedInUser=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+      localStorage.removeItem("currentUser");
+      window.location.href = "login.html";
+    });
+
+    document.body.appendChild(logoutBtn);
+  }
+</script>
+>
+
+</body>
+</html>

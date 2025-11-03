@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Acesse sua conta - Planner </title>
+     <link rel="stylesheet" href="./styles/auth.css">
+
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo-container">
+            <img class="logo" src="./assets/icons/logo.png" alt="Logo do site">
+            <span class="title">planner</span>
+            <span class="slogan">Organize suas tarefas e conquiste seus objetivos</span>
+        </div>
+        <form id="form-login" action="#" method="post">
+            <h2>Entrar</h2>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <div class="password-container">
+                <input type="password" id="senha" name="senha" minlength="4" placeholder="Senha" required />
+                <img class="visibility-icon" src="./assets/icons/eye-visible.svg" width="25" height="25" alt="Eye slash" >
+            </div>
+            
+            <span class="error-message"></span>
+
+            <button type="submit" class="login-btn">Entrar</button>
+
+            <div class="form-options">
+                <div class="remember-me-container">
+                    <input type="checkbox" name="rememberMe" id="remember-me">
+                    <label for="remember-me">Lembrar de mim</label>
+                </div>
+
+                <a id="forgot-password" href="./esqueci-a-senha.html">Esqueci a senha</a>
+            </div>
+
+            <span class="or-text">Ou entrar com</span>
+
+            <div class="social-login">
+                <div class="social-logo">
+                    <img src="./assets/icons/google.svg" alt="Google logo" width="25" height="25">
+                </div>
+                <span class="social-text">Continuar com Google</span>
+            </div>
+            <div class="social-login">
+                <div class="social-logo">
+                    <img src="./assets/icons/facebook.svg" alt="Facebook logo" width="25" height="25">
+                </div>
+                <span class="social-text">Continuar com Facebook</span>
+            </div>
+
+            <span class="signup-text">Não tem uma conta? <a href="./cadastro.html">Cadastre-se</a></span>
+
+    </form>
+</div>
+
+<script type="module" src="./scripts/login/main.js"></script>
+
+</body>
+</html>
